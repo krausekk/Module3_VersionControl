@@ -14,31 +14,31 @@ private static final Logger logger = Logger.getLogger(module3_logging.class.getN
     
     public static void main(String[] args) {
  
-        Handler fileHandler = null;
-        Formatter simpleFormatter = null;
+        Handler fH = null;
+        Formatter formatter = null;
         try{
              
             // Creating FileHandler
-            fileHandler = new FileHandler("/Users/kksab/tmp/formatter.log");
+            fH = new FileHandler("/Users/kksab/tmp/formatter.log");
              
             // Creating SimpleFormatter
-            simpleFormatter = new SimpleFormatter();
+            formatter = new SimpleFormatter();
              
             // Assigning handler to logger
-            logger.addHandler(fileHandler);
+            logger.addHandler(fH);
              
             // Logging message of Level info (this should be publish in the default format i.e. XMLFormat)
-            logger.info("Finnest message: Logger with DEFAULT FORMATTER");
+            logger.info("INFO message using the formatter");
              
             // Setting formatter to the handler
-            fileHandler.setFormatter(simpleFormatter);
+            fH.setFormatter(formatter);
              
-            // Setting Level to ALL
-            fileHandler.setLevel(Level.ALL);
-            logger.setLevel(Level.ALL);
+            // Setting Level to INFO
+            fH.setLevel(Level.INFO);
+            logger.setLevel(Level.INFO);
              
             // Logging message of Level finest (this should be publish in the simple format)
-            logger.finest("Finnest message: Logger with SIMPLE FORMATTER");
+            logger.finest("Finest message: Logger with SIMPLE FORMATTER");
         }catch(IOException exception){
         	logger.log(Level.SEVERE, "Error occur in FileHandler.", exception);
         }

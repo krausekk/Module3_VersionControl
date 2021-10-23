@@ -13,26 +13,26 @@ public class MyHandler extends module3_logging {
 	
 	public static void main(String[] args) {
 		
-		Handler consoleHandler = null;
-    Handler fileHandler  = null;
+		Handler cH = null;
+		Handler fH  = null;
     try{
         //Creating consoleHandler and fileHandler
-        consoleHandler = new ConsoleHandler();
-        fileHandler  = new FileHandler("/Users/kksab/tmp/handler.log");
+        cH = new ConsoleHandler();
+        fH  = new FileHandler("/Users/kksab/tmp/handler.log");
          
         //Assigning handlers to LOGGER object
-        logger.addHandler(consoleHandler);
-        logger.addHandler(fileHandler);
+        logger.addHandler(cH);
+        logger.addHandler(fH);
          
         //Setting levels to handlers and LOGGER
-        consoleHandler.setLevel(Level.ALL);
-        fileHandler.setLevel(Level.ALL);
-        logger.setLevel(Level.ALL);
+        cH.setLevel(Level.FINEST);
+        fH.setLevel(Level.FINEST);
+        logger.setLevel(Level.FINEST);
          
-        logger.config("Configuration completed.");
+        logger.config("Configuration has been completed.");
          
         //Console handler removed
-        logger.removeHandler(consoleHandler);
+        logger.removeHandler(cH);
          
         logger.log(Level.FINE, "Finer logged");
     }catch(IOException exception){
