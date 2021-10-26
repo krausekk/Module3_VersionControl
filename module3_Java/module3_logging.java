@@ -37,14 +37,14 @@ public class module3_logging
 				else if (input == 2) 
 					{
 					SeePrices("$7.99", boutique);
-					SeePrices("$10.99", boutique);
-					SeePrices("$4.99", boutique);
+					//SeePrices("$10.99", boutique);
+					//SeePrices("$4.99", boutique);
 					} 
 				else if (input == 3) 
 					{
 						AddToCart("Booties", boutique);
-						AddToCart("Onesie", boutique);
-						AddToCart("Sleeper", boutique);
+						//AddToCart("Onesie", boutique);
+						//AddToCart("Sleeper", boutique);
 					}
 				else if (input == 4)
 					{
@@ -70,26 +70,28 @@ public class module3_logging
 				MyFormatter.main(args);
 				MyHandler.main(args);
 			}
+		// Enter customer payment information
 		private static void PaymentType(ArrayList<String> boutique) {
 			System.out.println("Please enter your payment information");
 		}
-
+		// Remove products from the website
 		public static void RemoveProduct(ArrayList<String> boutique) {
 			System.out.println("This item is no longer available");
 		}
+		// Customer can view product prices
 		public static void SeePrices(String price, ArrayList<String> boutique) {
 			System.out.println("You are now able to view the product prices");
 			System.out.println(price);
 		}
-
+		// Customer can view the products on the website
 		public static void ViewProduct(ArrayList<String> boutique) {
 			System.out.println("Viewing the products");
 		}
-
+		// Owner can add product to the website
 		public static void AddProduct(ArrayList<String> boutique) {
 			System.out.println("Adding product to the website");
 		}
-
+		// Customer can add an item to the cart
 		public static void AddToCart(String productDesc, ArrayList<String> boutique) {
 			System.out.println("Added a Product to the cart");
 			boutique.add(productDesc);
