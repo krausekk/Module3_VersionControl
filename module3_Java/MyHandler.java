@@ -7,13 +7,16 @@ import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
  
+// Extending module3_logging class to MyHandler
 public class MyHandler extends module3_logging {
 	
 	private static final Logger logger = Logger.getLogger(module3_logging.class.getName());
 	
 	public static void main(String[] args) {
-		
+		// Console Handler
 		Handler cH = null;
+		
+		//FileHandler
 		Handler fH  = null;
     try{
         //Creating consoleHandler and fileHandler

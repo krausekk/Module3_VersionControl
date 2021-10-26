@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+// extending module3_logging class to MyFormatter
 public class MyFormatter extends module3_logging {
  
 private static final Logger logger = Logger.getLogger(module3_logging.class.getName());
