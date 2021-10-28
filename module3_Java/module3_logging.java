@@ -1,5 +1,9 @@
 package module3_Java;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -14,9 +18,17 @@ public class module3_logging
 	public static void main(String[] args) 
 	{
 		logger.info("Logger Name: "+logger.getName());
-		logger.warning("Can cause ArrayIndexOutOfBoundsException");
+		logger.warning("Can cause ArrayIndexOutOfBoundsException \n");
 		LogManager.getLogManager().getLogger(Logger.GLOBAL_LOGGER_NAME).setLevel(Level.FINE);
 			
+		try {
+			String urlConn = "jdbc:mysql://localhost:3306/sales";
+			Connection connection = DriverManager.getConnection(urlConn, "root", "root");
+			System.out.println("Connection Successful \n");
+		} catch (Exception e) {
+			System.out.println("Error Connecting to database:" + e.getMessage());
+		}
+		
 		ArrayList<String> boutique = new ArrayList<String>();
 			
 			
@@ -24,7 +36,7 @@ public class module3_logging
 			Scanner s = new Scanner(System.in);
 			
 			int input = 0;
-			System.out.println("Please enter your choice.  \n Enter 1 to view products, \n Enter 2 to see product prices, \n Enter 3 to add product to cart, \n Enter 4 to add product to the website, \n Enter 5 to remove an item from the website, \n Enter 6 to add payment type");
+			System.out.println("\nWelcome to Bambino's Children's Boutique please enter your choice to continue.  \n Enter 1 to view products, \n Enter 2 to see product prices, \n Enter 3 to add product to cart, \n Enter 4 to add product to the website, \n Enter 5 to remove an item from the website, \n Enter 6 to add payment type");
 			
 			input = s.nextInt();
 			
@@ -32,35 +44,35 @@ public class module3_logging
 			
 			try {
 				if (input ==1) {
-					ViewProduct(boutique);
+					ViewProduct.main(args);
 				}
 				else if (input == 2) 
 					{
-					SeePrices("$7.99", boutique);
+					seePrices.main(args);
+					//SeePrices("$7.99", boutique);
 					//SeePrices("$10.99", boutique);
 					//SeePrices("$4.99", boutique);
 					} 
 				else if (input == 3) 
 					{
-						AddToCart("Booties", boutique);
+						addProduct.main(args);
+						//AddToCart("Booties", boutique);
 						//AddToCart("Onesie", boutique);
 						//AddToCart("Sleeper", boutique);
 					}
 				else if (input == 4)
 					{
-						AddProduct(boutique);
+						addWebsiteProduct.main(args);
 					}
 					
 				else if (input == 5)
 				{
-					RemoveProduct(boutique);
+					RemoveProduct.main(args);
 				}
 				else
 				{
-					PaymentType(boutique);
+					PaymentType.main(args);
 				}
-				
-				System.out.println(input);
 			}
 				catch (ArrayIndexOutOfBoundsException ex)
 				{
@@ -70,30 +82,30 @@ public class module3_logging
 				MyFormatter.main(args);
 				MyHandler.main(args);
 			}
-		// Enter customer payment information
-		private static void PaymentType(ArrayList<String> boutique) {
-			System.out.println("Please enter your payment information");
-		}
-		// Remove products from the website
-		public static void RemoveProduct(ArrayList<String> boutique) {
-			System.out.println("This item is no longer available");
-		}
-		// Customer can view product prices
-		public static void SeePrices(String price, ArrayList<String> boutique) {
-			System.out.println("You are now able to view the product prices");
-			System.out.println(price);
-		}
-		// Customer can view the products on the website
-		public static void ViewProduct(ArrayList<String> boutique) {
-			System.out.println("Viewing the products");
-		}
-		// Owner can add product to the website
-		public static void AddProduct(ArrayList<String> boutique) {
-			System.out.println("Adding product to the website");
-		}
-		// Customer can add an item to the cart
-		public static void AddToCart(String productDesc, ArrayList<String> boutique) {
-			System.out.println("Added a Product to the cart");
-			boutique.add(productDesc);
-		}
-	}
+//		// Enter customer payment information
+//		private static void PaymentType(ArrayList<String> boutique) {
+//			System.out.println("Please enter your payment information");
+//		}
+//		// Remove products from the website
+//		public static void RemoveProduct(ArrayList<String> boutique) {
+//			System.out.println("This item is no longer available");
+//		}
+//		// Customer can view product prices
+//		public static void SeePrices(String price, ArrayList<String> boutique) {
+//			System.out.println("You are now able to view the product prices");
+//			System.out.println(price);
+//		}
+//		// Customer can view the products on the website
+//		public static void ViewProduct(ArrayList<String> boutique) {
+//			System.out.println("Viewing the products");
+//		}
+//		// Owner can add product to the website
+//		public static void AddProduct(ArrayList<String> boutique) {
+//			System.out.println("Adding product to the website");
+//		}
+//		// Customer can add an item to the cart
+//		public static void AddToCart(String productDesc, ArrayList<String> boutique) {
+//			System.out.println("Added a Product to the cart");
+//			boutique.add(productDesc);
+//		}
+}
