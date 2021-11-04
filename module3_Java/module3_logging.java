@@ -37,7 +37,7 @@ public class module3_logging
 			
 			int input = 0;
 			System.out.println("\nWelcome to Bambino's Children's Boutique please enter your choice to continue.  \n Enter 1 to view products, \n Enter 2 to see product prices, \n Enter 3 to add product to cart, \n Enter 4 to add product to the website, \n Enter 5 to remove an item from the website, \n Enter 6 to add payment type");
-			
+
 			input = s.nextInt();
 			
 			logger.config("input is set to  " +input);
@@ -78,7 +78,7 @@ public class module3_logging
 				{
 						logger.log(Level.SEVERE, "Exception occur", ex);
 				}
-			
+				Customer.main(args);
 				MyFormatter.main(args);
 				MyHandler.main(args);
 			}
